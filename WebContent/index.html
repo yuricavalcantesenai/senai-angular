@@ -7,58 +7,59 @@
 	<title>Tarefas</title>
 </head>
 <body>
-	<form class="form-horizontal">
-		<div class="col-sm-6 col-sm-offset-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h2>Tarefa</h2>
-				</div>
-				<div class="panel-body">
-					<div class="form-group">
-						<label class="control-label col-sm-3" for="resumo">Resumo</label>
-						<div class="col-sm-9">
-							<input id="resumo" name="resumo" class="form-control" ng-model="resumo">
-							{{resumo}}
+	<div ng-controller="TarefaController as controller">
+		<form class="form-horizontal">
+			<div class="col-sm-6 col-sm-offset-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2>Tarefa</h2>
+					</div>
+					<div class="panel-body">
+						{{controller.tarefa}}
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="resumo">Resumo</label>
+							<div class="col-sm-9">
+								<input id="resumo" name="resumo" class="form-control" ng-model="controller.tarefa.resumo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="descricao">Descrição</label>
+							<div class="col-sm-9">
+								<textarea id="descricao" name="descricao" class="form-control" ng-model="controller.tarefa.descricao" rows="6"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="prazo">Prazo</label>
+							<div class="col-sm-9">
+								<input id="prazo" name="prazo" class="form-control" ng-model="controller.tarefa.prazo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="situacao">Situação</label>
+							<div class="col-sm-9">
+								<select id="situacao" name="situacao" class="form-control" ng-model="controller.tarefa.situacao">
+									<option value="">Selecione...</option>
+									<option value="Pendente">Pendente</option>
+									<option value="Concluído">Concluído</option>
+								</select>
+							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3" for="descricao">Descrição</label>
-						<div class="col-sm-9">
-							<textarea id="descricao" name="descricao" class="form-control" ng-model="descricao" rows="6"></textarea>
-							{{descricao}}
-						</div>
+					<div class="panel-footer text-right">
+					 	<button type="button" class="btn btn-primary">Salvar</button>
+					 	<button type="button" class="btn btn-default">Cancelar</button>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3" for="prazo">Prazo</label>
-						<div class="col-sm-9">
-							<input id="prazo" name="prazo" class="form-control" ng-model="prazo">
-							{{prazo}}
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3" for="situacao">Situação</label>
-						<div class="col-sm-9">
-							<select id="situacao" name="situacao" class="form-control" ng-model="situacao">
-								<option value="">Selecione...</option>
-								<option value="Pendente">Pendente</option>
-								<option value="Concluído">Concluído</option>
-							</select>
-							{{situacao}}
-						</div>
-					</div>
-				</div>
-				<div class="panel-footer text-right">
-				 	<button type="button" class="btn btn-primary">Salvar</button>
-				 	<button type="button" class="btn btn-default">Cancelar</button>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 	
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
 	<!-- modulos -->
 	<script type="text/javascript" src="js/config/app.js"></script>
+	<!-- controllers -->
+	<script type="text/javascript" src="js/tarefa/tarefa-controller.js"></script>
 </body>
 </html>
