@@ -26,6 +26,6 @@ angular.module("tarefas").controller("TarefaController",function(){
 	}
 	
 	this.selecionarTarefa = function(tarefa){
-		this.tarefa = tarefa;
+		this.tarefa = angular.copy(tarefa);
 	}
 });
