@@ -12,4 +12,16 @@ angular.module("tarefas").controller("TarefaController",function(){
 		this.tarefas.push(tarefa);
 		this.novaTarefa();
 	};
+	
+	this.removerTarefa = function(tarefa){
+		var pos = -1;
+		angular.forEach(this.tarefas,function(item,index){
+			if(tarefa.id == item.id){
+				pos = index;
+			}
+		});
+		if(pos > -1){
+			this.tarefas.splice(pos,1);
+		}
+	}
 });
