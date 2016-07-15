@@ -24,4 +24,8 @@ angular.module("tarefas").controller("TarefaController",function(){
 			this.tarefas.splice(pos,1);
 		}
 	}
+	
+	this.selecionarTarefa = function(tarefa){
+		this.tarefa = tarefa;
+	}
 });
