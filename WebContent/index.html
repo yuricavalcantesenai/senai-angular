@@ -46,43 +46,44 @@
 						</div>
 					</div>
 					<div class="panel-footer text-right">
-					 	<button type="button" class="btn btn-primary">Salvar</button>
-					 	<button type="button" class="btn btn-default">Cancelar</button>
+					 	<button type="button" class="btn btn-primary" ng-click="controller.salvarTarefa(controller.tarefa)">Salvar</button>
+					 	<button type="button" class="btn btn-default" ng-click="controller.novaTarefa()">Cancelar</button>
 					</div>
 				</div>
 			</div>
 		</form>
 		
-		<div>
-			<div class="col-sm-4 col-sm-offset-8">
-				<div class="input-group">
-					<input class="form-control">
-					<div class="input-group-btn">
-						<button type="button" class="btn btn-default">Pesquisar</button>
-						<button type="button" class="btn btn-primary">Novo</button>
-					</div>
+		<div class="col-sm-4 col-sm-offset-8">
+			<div class="input-group">
+				<input class="form-control">
+				<div class="input-group-btn">
+					<button type="button" class="btn btn-default">Pesquisar</button>
+					<button type="button" class="btn btn-primary">Novo</button>
 				</div>
 			</div>
-			<div class="table-responsive col-sm-12">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Resumo</th>
-							<th>Prazo</th>
-							<th>Situação</th>
-							<th>Opções</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+		</div>
+		<div class="table-responsive col-sm-12">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Resumo</th>
+						<th>Prazo</th>
+						<th>Situação</th>
+						<th>Opções</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tarefa in controller.tarefas">
+						<td>{{tarefa.resumo}}</td>
+						<td>{{tarefa.prazo}}</td>
+						<td>{{tarefa.situacao}}</td>
+						<td>
+							<button type="button" class="btn btn-warning">Editar</button>
+							<button type="button" class="btn btn-danger">Remover</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 	
