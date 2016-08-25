@@ -74,7 +74,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="tarefa in controller.tarefas">
-						<td>{{tarefa.resumo}}</td>
+						<td>{{tarefa.resumo | uppercase}}</td>
 						<td>{{tarefa.prazo}}</td>
 						<td>{{tarefa.situacao}}</td>
 						<td>
