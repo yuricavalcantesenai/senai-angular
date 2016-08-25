@@ -1,4 +1,6 @@
 (function(){
+	'use strict';
+	
 	angular.module("tarefas").controller("TarefaController",Controller);
 	
 	Controller.$inject = ["lowercaseFilter"];
