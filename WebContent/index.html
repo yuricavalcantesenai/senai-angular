@@ -67,6 +67,7 @@
 				<thead>
 					<tr>
 						<th>Resumo</th>
+						<th>Descrição</th>
 						<th>Prazo</th>
 						<th>Situação</th>
 						<th>Opções</th>
@@ -75,6 +76,7 @@
 				<tbody>
 					<tr ng-repeat="tarefa in controller.tarefas">
 						<td>{{tarefa.resumo | uppercase}}</td>
+						<td>{{tarefa.descricao | capitalize}}</td>
 						<td>{{tarefa.prazo}}</td>
 						<td>{{tarefa.situacao}}</td>
 						<td>
@@ -92,6 +94,8 @@
 	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
 	<!-- modulos -->
 	<script type="text/javascript" src="js/config/app.js"></script>
+	<!-- filters -->
+	<script type="text/javascript" src="js/filter/capitalize-filter.js"></script>
 	<!-- controllers -->
 	<script type="text/javascript" src="js/tarefa/tarefa-controller.js"></script>
 </body>
