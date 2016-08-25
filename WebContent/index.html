@@ -55,7 +55,7 @@
 		
 		<div class="col-sm-4 col-sm-offset-8">
 			<div class="input-group">
-				<input class="form-control">
+				<input class="form-control" ng-model="controller.pesquisa">
 				<div class="input-group-btn">
 					<button type="button" class="btn btn-default">Pesquisar</button>
 					<button type="button" class="btn btn-primary">Novo</button>
@@ -74,7 +74,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="tarefa in controller.tarefas">
+					<tr ng-repeat="tarefa in controller.tarefas | filter:controller.pesquisa">
 						<td>{{tarefa.resumo | uppercase}}</td>
 						<td>{{tarefa.descricao | capitalize}}</td>
 						<td>{{tarefa.prazo}}</td>

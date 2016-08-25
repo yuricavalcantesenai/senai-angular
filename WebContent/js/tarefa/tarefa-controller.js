@@ -12,6 +12,8 @@
 		
 		self.tarefas = [];
 		
+		self.pesquisa = "";
+		
 		self.novaTarefa = function(){
 			self.tarefa = {};
 		};
