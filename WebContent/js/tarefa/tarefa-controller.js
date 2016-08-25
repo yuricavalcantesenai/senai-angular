@@ -14,6 +14,7 @@ function Controller(lc){
 	};
 	
 	self.salvarTarefa = function(tarefa){
+		tarefa.descricao = lc(tarefa.descricao);
 		if(tarefa.id){
 			editarTarefa(tarefa);
 		} else{
