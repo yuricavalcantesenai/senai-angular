@@ -1,4 +1,8 @@
-angular.module("tarefas").controller("TarefaController",function(){
+angular.module("tarefas").controller("TarefaController",Controller);
+
+Controller.$inject = ["lowercaseFilter"];
+
+function Controller(lc){
 	var self = this;
 	
 	self.tarefa = {};
@@ -51,4 +55,4 @@ angular.module("tarefas").controller("TarefaController",function(){
 	self.selecionarTarefa = function(tarefa){
 		self.tarefa = angular.copy(tarefa);
 	}
-});
+}
