@@ -31,7 +31,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-3" for="prazo">Prazo</label>
 							<div class="col-sm-9">
-								<input id="prazo" name="prazo" class="form-control" ng-model="controller.tarefa.prazo">
+								<input id="prazo" name="prazo" class="form-control" date-format ng-model="controller.tarefa.prazo">
 							</div>
 						</div>
 						<div class="form-group">
@@ -96,6 +96,8 @@
 	<script type="text/javascript" src="js/config/app.js"></script>
 	<!-- filters -->
 	<script type="text/javascript" src="js/filter/capitalize-filter.js"></script>
+	<!-- directives -->
+	<script type="text/javascript" src="js/directive/date-format.directive.js"></script>
 	<!-- controllers -->
 	<script type="text/javascript" src="js/tarefa/tarefa-controller.js"></script>
 </body>
