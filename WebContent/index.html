@@ -77,7 +77,7 @@
 					<tr ng-repeat="tarefa in controller.tarefas | filter:controller.pesquisa">
 						<td>{{tarefa.resumo | uppercase}}</td>
 						<td>{{tarefa.descricao | capitalize}}</td>
-						<td>{{tarefa.prazo}}</td>
+						<td>{{tarefa.prazo | date:'dd/MM/yyyy'}}</td>
 						<td>{{tarefa.situacao}}</td>
 						<td>
 							<button type="button" class="btn btn-warning" ng-click="controller.selecionarTarefa(tarefa)">Editar</button>
