@@ -37,6 +37,7 @@
 						value = value.replace(/(\d{2})\/(\d{2})(\d+)/,"$1/$2/$3");
 						value = value.replace(/(\d{2})\/(\d{2})\/(\d{4}).*/,"$1/$2/$3");
 						e.target.value = value;
+						ngModel.$setViewValue(value);
 					}
 				});
 			}
