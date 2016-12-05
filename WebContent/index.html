@@ -16,12 +16,13 @@
 					</div>
 					<div class="panel-body">
 						<json data="meuFormulario"></json>
-						<div class="form-group">
+						<div class="form-group" 
+							ng-class="{'has-error': meuFormulario.resumo.$invalid, 'has-success': meuFormulario.resumo.$valid}">
 							<label class="control-label col-sm-3" for="resumo">Resumo</label>
 							<div class="col-sm-9">
 								<input id="resumo" name="resumo" class="form-control" ng-model="controller.tarefa.resumo"
 									required ng-minlength="3" ng-maxlength="10">
-								<div ng-messages="meuFormulario.resumo.$error" ng-if="meuFormulario.resumo.$dirty">
+								<div ng-messages="meuFormulario.resumo.$error" class="help-block" ng-if="meuFormulario.resumo.$dirty">
 									<div ng-message="required">Campo resumo deve ser informado</div>
 									<div ng-message="minlength">Campo resumo deve conter no mínimo 3 caracteres</div>
 									<div ng-message="maxlength">Campo resumo deve conter no máximo 10 caracteres</div>
