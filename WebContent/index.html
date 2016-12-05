@@ -8,18 +8,18 @@
 </head>
 <body>
 	<div ng-controller="TarefaController as controller">
-		<form class="form-horizontal">
+		<form name="meuFormulario" class="form-horizontal">
 			<div class="col-sm-6 col-sm-offset-3">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h2>Tarefa</h2>
 					</div>
 					<div class="panel-body">
-						<json data="controller.tarefa"></json>
+						<json data="meuFormulario"></json>
 						<div class="form-group">
 							<label class="control-label col-sm-3" for="resumo">Resumo</label>
 							<div class="col-sm-9">
-								<input id="resumo" name="resumo" class="form-control" ng-model="controller.tarefa.resumo">
+								<input id="resumo" name="resumo" class="form-control" ng-model="controller.tarefa.resumo" required>
 							</div>
 						</div>
 						<div class="form-group">
