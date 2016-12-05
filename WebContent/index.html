@@ -17,7 +17,8 @@
 					<div class="panel-body">
 						<json data="meuFormulario"></json>
 						<div class="form-group" 
-							ng-class="{'has-error': meuFormulario.resumo.$invalid, 'has-success': meuFormulario.resumo.$valid}">
+							ng-class="{'has-error': meuFormulario.resumo.$invalid && meuFormulario.resumo.$dirty,
+									   'has-success': meuFormulario.resumo.$valid && meuFormulario.resumo.$dirty}">
 							<label class="control-label col-sm-3" for="resumo">Resumo</label>
 							<div class="col-sm-9">
 								<input id="resumo" name="resumo" class="form-control" ng-model="controller.tarefa.resumo"
