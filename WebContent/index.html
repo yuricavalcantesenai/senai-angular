@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div ng-controller="TarefaController as controller">
-		<form name="meuFormulario" class="form-horizontal">
+		<form name="meuFormulario" class="form-horizontal" ng-submit="controller.salvarTarefa(controller.tarefa)">
 			<div class="col-sm-6 col-sm-offset-3">
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<div class="panel-footer text-right">
-					 	<button type="button" class="btn btn-primary" ng-click="controller.salvarTarefa(controller.tarefa)">Salvar</button>
+					 	<button type="button" class="btn btn-primary" ng-disabled="meuFormulario.$invalid">Salvar</button>
 					 	<button type="button" class="btn btn-default" ng-click="controller.novaTarefa()">Cancelar</button>
 					</div>
 				</div>
