@@ -3,9 +3,9 @@
 	
 	angular.module("tarefas").controller("TarefaController",Controller);
 	
-	Controller.$inject = ["lowercaseFilter"];
+	Controller.$inject = ["lowercaseFilter", "TarefaFactory"];
 	
-	function Controller(lc){
+	function Controller(lc, tarefaFactory){
 		var self = this;
 		
 		self.tarefa = {};
@@ -28,9 +28,10 @@
 		};
 		
 		function incluirTarefa(tarefa){
-			tarefa.id = new Date().getTime();
-			self.tarefas.push(tarefa);
-			self.novaTarefa();
+			tarefaFactory.save(tarefa).then(function(result){
+				self.tarefas.push(result.data);				
+				self.novaTarefa();
+			});
 		}
 		
 		function editarTarefa(tarefa){
