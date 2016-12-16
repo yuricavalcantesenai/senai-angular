@@ -8,7 +8,7 @@
 	function Factory($resource) {
 		var factory = {};
 		
-		var resource = $resouce("http://localhost:8080/tarefas-rest/api/tarefas/:id");
+		var resource = $resource("http://localhost:8080/tarefas-rest/api/tarefas/:id");
 		
 		factory.save = function(tarefa) {
 			return resource.save({}, tarefa).$promise;
