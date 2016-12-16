@@ -3,9 +3,9 @@
 	
 	angular.module("tarefas").controller("TarefaController",Controller);
 	
-	Controller.$inject = ["lowercaseFilter", "TarefaFactory"];
+	Controller.$inject = ["lowercaseFilter", "TarefaFactory", "toaster"];
 	
-	function Controller(lc, tarefaFactory){
+	function Controller(lc, tarefaFactory, toaster){
 		var self = this;
 		
 		self.tarefa = {};
@@ -31,6 +31,11 @@
 			tarefaFactory.save(tarefa).then(function(result){
 				self.tarefas.push(result.data);				
 				self.novaTarefa();
+				toaster.pop({
+					type: result.status,
+					title: "Aviso",
+					body: result.mensagem
+				});
 			});
 		}
 		
