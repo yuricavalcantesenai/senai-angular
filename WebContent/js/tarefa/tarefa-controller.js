@@ -14,6 +14,10 @@
 		
 		self.pesquisa = "";
 		
+		function init(){
+			self.pesquisar();
+		}
+		
 		self.novaTarefa = function(){
 			self.tarefa = {};
 		};
@@ -67,5 +71,13 @@
 		self.selecionarTarefa = function(tarefa){
 			self.tarefa = angular.copy(tarefa);
 		}
+		
+		self.pesquisar = function(){
+			tarefaFactory.search(self.pesquisa).then(function(result){
+				self.tarefas = result.data;
+			});
+		}
+		
+		init();
 	}
 })();

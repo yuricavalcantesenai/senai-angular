@@ -14,6 +14,14 @@
 			return resource.save({}, tarefa).$promise;
 		}
 		
+		factory.search = function(text){
+			var params = {};
+			if(text && text.trim() != ""){
+				params.search = text;
+			}
+			return resource.get(params).$promise;
+		}
+		
 		return factory;
 	}
 })();

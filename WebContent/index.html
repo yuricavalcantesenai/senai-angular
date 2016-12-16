@@ -85,7 +85,7 @@
 			<div class="input-group">
 				<input class="form-control" ng-model="controller.pesquisa">
 				<div class="input-group-btn">
-					<button type="button" class="btn btn-default">Pesquisar</button>
+					<button type="button" class="btn btn-default" ng-click="controller.pesquisar();">Pesquisar</button>
 					<button type="button" class="btn btn-primary">Novo</button>
 				</div>
 			</div>
@@ -102,7 +102,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="tarefa in controller.tarefas | filter:controller.pesquisa">
+					<tr ng-repeat="tarefa in controller.tarefas">
 						<td>{{tarefa.resumo | uppercase}}</td>
 						<td>{{tarefa.descricao | capitalize}}</td>
 						<td>{{tarefa.prazo | date:'dd/MM/yyyy'}}</td>
