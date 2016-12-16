@@ -66,15 +66,22 @@
 		}
 		
 		self.removerTarefa = function(tarefa){
-			var pos = -1;
-			angular.forEach(self.tarefas,function(item,index){
-				if(tarefa.id == item.id){
-					pos = index;
+			tarefaFactory.remove(tarefa.id).then(function(result){
+				var pos = -1;
+				angular.forEach(self.tarefas,function(item,index){
+					if(result.data.id == item.id){
+						pos = index;
+					}
+				});
+				if(pos > -1){
+					self.tarefas.splice(pos,1);
 				}
+				toaster.pop({
+					type: result.status,
+					title: "Aviso",
+					body: result.mensagem
+				});
 			});
-			if(pos > -1){
-				self.tarefas.splice(pos,1);
-			}
 		}
 		
 		self.selecionarTarefa = function(tarefa){
@@ -85,7 +92,7 @@
 		
 		self.pesquisar = function(){
 			tarefaFactory.search(self.pesquisa).then(function(result){
-				self.tarefas = result.data;
+				self.tarefas = result.data || [];
 			});
 		}
 		
