@@ -69,7 +69,9 @@
 		}
 		
 		self.selecionarTarefa = function(tarefa){
-			self.tarefa = angular.copy(tarefa);
+			tarefaFactory.getById(tarefa.id).then(function(result){
+				self.tarefa = result.data;
+			});
 		}
 		
 		self.pesquisar = function(){

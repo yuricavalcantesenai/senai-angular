@@ -22,6 +22,10 @@
 			return resource.get(params).$promise;
 		}
 		
+		factory.getById = function(id){
+			return resource.get({id: id}).$promise;
+		}
+		
 		return factory;
 	}
 })();
