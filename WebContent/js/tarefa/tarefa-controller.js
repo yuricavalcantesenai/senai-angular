@@ -44,16 +44,25 @@
 		}
 		
 		function editarTarefa(tarefa){
-			var pos = -1;
-			angular.forEach(self.tarefas,function(item,index){
-				if(tarefa.id == item.id){
-					pos = index;
+			// atualiza no servico
+			tarefaFactory.update(tarefa.id, tarefa).then(function(result){
+				// atualiza na lista
+				var pos = -1;
+				angular.forEach(self.tarefas,function(item,index){
+					if(result.data.id == item.id){
+						pos = index;
+					}
+				});
+				if(pos > -1){
+					self.tarefas.splice(pos,1,result.data);
 				}
-			});
-			if(pos > -1){
-				self.tarefas.splice(pos,1,self.tarefa);
 				self.novaTarefa();
-			}
+				toaster.pop({
+					type: result.status,
+					title: "Aviso",
+					body: result.mensagem
+				});
+			});
 		}
 		
 		self.removerTarefa = function(tarefa){
